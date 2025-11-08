@@ -5,457 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>shadcn/ui Components Showcase</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        border: "hsl(214.3 31.8% 91.4%)",
-                        input: "hsl(214.3 31.8% 91.4%)",
-                        ring: "hsl(221.2 83.2% 53.3%)",
-                        background: "hsl(0 0% 100%)",
-                        foreground: "hsl(222.2 84% 4.9%)",
-                        primary: {
-                            DEFAULT: "hsl(222.2 47.4% 11.2%)",
-                            foreground: "hsl(210 40% 98%)",
-                        },
-                        secondary: {
-                            DEFAULT: "hsl(210 40% 96.1%)",
-                            foreground: "hsl(222.2 47.4% 11.2%)",
-                        },
-                        destructive: {
-                            DEFAULT: "hsl(0 84.2% 60.2%)",
-                            foreground: "hsl(210 40% 98%)",
-                        },
-                        muted: {
-                            DEFAULT: "hsl(210 40% 96.1%)",
-                            foreground: "hsl(215.4 16.3% 46.9%)",
-                        },
-                        accent: {
-                            DEFAULT: "hsl(210 40% 96.1%)",
-                            foreground: "hsl(222.2 47.4% 11.2%)",
-                        },
-                        popover: {
-                            DEFAULT: "hsl(0 0% 100%)",
-                            foreground: "hsl(222.2 84% 4.9%)",
-                        },
-                        card: {
-                            DEFAULT: "hsl(0 0% 100%)",
-                            foreground: "hsl(222.2 84% 4.9%)",
-                        },
-                    },
-                    borderRadius: {
-                        lg: "0.5rem",
-                        md: "calc(0.5rem - 2px)",
-                        sm: "calc(0.5rem - 4px)",
-                    },
-                },
-            },
-        }
-    </script>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        }
-
-        /* Custom component styles matching shadcn/ui */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 0.375rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: colors 0.2s;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn:focus-visible {
-            outline: none;
-            box-shadow: 0 0 0 2px hsl(221.2 83.2% 53.3%);
-        }
-
-        .btn:disabled {
-            opacity: 0.5;
-            pointer-events: none;
-        }
-
-        .btn-default {
-            background-color: hsl(222.2 47.4% 11.2%);
-            color: hsl(210 40% 98%);
-        }
-
-        .btn-default:hover {
-            background-color: hsl(222.2 47.4% 9%);
-        }
-
-        .btn-destructive {
-            background-color: hsl(0 84.2% 60.2%);
-            color: hsl(210 40% 98%);
-        }
-
-        .btn-destructive:hover {
-            background-color: hsl(0 84.2% 55%);
-        }
-
-        .btn-outline {
-            border: 1px solid hsl(214.3 31.8% 91.4%);
-            background-color: transparent;
-            color: hsl(222.2 84% 4.9%);
-        }
-
-        .btn-outline:hover {
-            background-color: hsl(210 40% 96.1%);
-        }
-
-        .btn-secondary {
-            background-color: hsl(210 40% 96.1%);
-            color: hsl(222.2 47.4% 11.2%);
-        }
-
-        .btn-secondary:hover {
-            background-color: hsl(210 40% 93%);
-        }
-
-        .btn-ghost {
-            background-color: transparent;
-            color: hsl(222.2 84% 4.9%);
-        }
-
-        .btn-ghost:hover {
-            background-color: hsl(210 40% 96.1%);
-        }
-
-        .btn-link {
-            background-color: transparent;
-            color: hsl(222.2 47.4% 11.2%);
-            text-decoration: none;
-        }
-
-        .btn-link:hover {
-            text-decoration: underline;
-            text-underline-offset: 4px;
-        }
-
-        .input {
-            display: flex;
-            height: 2.5rem;
-            width: 100%;
-            border-radius: 0.375rem;
-            border: 1px solid hsl(214.3 31.8% 91.4%);
-            background-color: transparent;
-            padding: 0.5rem 0.75rem;
-            font-size: 0.875rem;
-        }
-
-        .input::placeholder {
-            color: hsl(215.4 16.3% 46.9%);
-        }
-
-        .input:focus-visible {
-            outline: none;
-            box-shadow: 0 0 0 2px hsl(221.2 83.2% 53.3%);
-        }
-
-        .input:disabled {
-            cursor: not-allowed;
-            opacity: 0.5;
-        }
-
-        .textarea {
-            display: flex;
-            min-height: 80px;
-            width: 100%;
-            border-radius: 0.375rem;
-            border: 1px solid hsl(214.3 31.8% 91.4%);
-            background-color: transparent;
-            padding: 0.5rem 0.75rem;
-            font-size: 0.875rem;
-            resize: vertical;
-        }
-
-        .textarea::placeholder {
-            color: hsl(215.4 16.3% 46.9%);
-        }
-
-        .textarea:focus-visible {
-            outline: none;
-            box-shadow: 0 0 0 2px hsl(221.2 83.2% 53.3%);
-        }
-
-        .textarea:disabled {
-            cursor: not-allowed;
-            opacity: 0.5;
-        }
-
-        .card {
-            border-radius: 0.5rem;
-            border: 1px solid hsl(214.3 31.8% 91.4%);
-            background-color: hsl(0 0% 100%);
-            color: hsl(222.2 84% 4.9%);
-            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            border-radius: 9999px;
-            border: 1px solid;
-            padding: 0.125rem 0.625rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            transition: colors 0.2s;
-        }
-
-        .badge:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px hsl(221.2 83.2% 53.3%);
-        }
-
-        .badge-default {
-            border-color: transparent;
-            background-color: hsl(222.2 47.4% 11.2%);
-            color: hsl(210 40% 98%);
-        }
-
-        .badge-default:hover {
-            background-color: hsl(222.2 47.4% 9%);
-        }
-
-        .badge-secondary {
-            border-color: transparent;
-            background-color: hsl(210 40% 96.1%);
-            color: hsl(222.2 47.4% 11.2%);
-        }
-
-        .badge-secondary:hover {
-            background-color: hsl(210 40% 93%);
-        }
-
-        .badge-destructive {
-            border-color: transparent;
-            background-color: hsl(0 84.2% 60.2%);
-            color: hsl(210 40% 98%);
-        }
-
-        .badge-destructive:hover {
-            background-color: hsl(0 84.2% 55%);
-        }
-
-        .badge-outline {
-            color: hsl(222.2 84% 4.9%);
-        }
-
-        .alert {
-            position: relative;
-            width: 100%;
-            border-radius: 0.5rem;
-            border: 1px solid;
-            padding: 1rem;
-        }
-
-        .alert-default {
-            background-color: hsl(0 0% 100%);
-            color: hsl(222.2 84% 4.9%);
-            border-color: hsl(214.3 31.8% 91.4%);
-        }
-
-        .alert-destructive {
-            border-color: hsl(0 84.2% 75%);
-            color: hsl(0 84.2% 60.2%);
-        }
-
-        /* Checkbox styles */
-        .checkbox {
-            height: 1rem;
-            width: 1rem;
-            border-radius: 0.125rem;
-            border: 1px solid hsl(222.2 47.4% 11.2%);
-            cursor: pointer;
-        }
-
-        .checkbox:checked {
-            background-color: hsl(222.2 47.4% 11.2%);
-            color: hsl(210 40% 98%);
-        }
-
-        .checkbox:focus-visible {
-            outline: none;
-            box-shadow: 0 0 0 2px hsl(221.2 83.2% 53.3%);
-        }
-
-        .checkbox:disabled {
-            cursor: not-allowed;
-            opacity: 0.5;
-        }
-
-        /* Radio styles */
-        .radio {
-            height: 1rem;
-            width: 1rem;
-            border-radius: 9999px;
-            border: 1px solid hsl(222.2 47.4% 11.2%);
-            cursor: pointer;
-        }
-
-        .radio:focus-visible {
-            outline: none;
-            box-shadow: 0 0 0 2px hsl(221.2 83.2% 53.3%);
-        }
-
-        .radio:disabled {
-            cursor: not-allowed;
-            opacity: 0.5;
-        }
-
-        /* Progress bar */
-        .progress {
-            position: relative;
-            height: 1rem;
-            width: 100%;
-            overflow: hidden;
-            border-radius: 9999px;
-            background-color: hsl(210 40% 96.1%);
-        }
-
-        .progress-indicator {
-            height: 100%;
-            background-color: hsl(222.2 47.4% 11.2%);
-            transition: all 0.3s;
-        }
-
-        /* Skeleton */
-        .skeleton {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-            border-radius: 0.375rem;
-            background-color: hsl(210 40% 96.1%);
-        }
-
-        /* Tabs */
-        .tabs-list {
-            display: inline-flex;
-            height: 2.5rem;
-            align-items: center;
-            justify-content: center;
-            border-radius: 0.375rem;
-            background-color: hsl(210 40% 96.1%);
-            padding: 0.25rem;
-            color: hsl(215.4 16.3% 46.9%);
-        }
-
-        .tabs-trigger {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            white-space: nowrap;
-            border-radius: 0.125rem;
-            padding: 0.375rem 0.75rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: all 0.2s;
-            cursor: pointer;
-            background-color: transparent;
-            border: none;
-        }
-
-        .tabs-trigger:focus-visible {
-            outline: none;
-            box-shadow: 0 0 0 2px hsl(221.2 83.2% 53.3%);
-        }
-
-        .tabs-trigger:disabled {
-            pointer-events: none;
-            opacity: 0.5;
-        }
-
-        .tabs-trigger-active {
-            background-color: hsl(0 0% 100%);
-            color: hsl(222.2 84% 4.9%);
-            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-        }
-
-        /* Avatar */
-        .avatar {
-            position: relative;
-            display: flex;
-            height: 2.5rem;
-            width: 2.5rem;
-            flex-shrink: 0;
-            overflow: hidden;
-            border-radius: 9999px;
-        }
-
-        .avatar-image {
-            aspect-ratio: 1;
-            height: 100%;
-            width: 100%;
-        }
-
-        .avatar-fallback {
-            display: flex;
-            height: 100%;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-            border-radius: 9999px;
-            background-color: hsl(210 40% 96.1%);
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        /* Select */
-        .select {
-            display: flex;
-            height: 2.5rem;
-            width: 100%;
-            align-items: center;
-            justify-content: space-between;
-            border-radius: 0.375rem;
-            border: 1px solid hsl(214.3 31.8% 91.4%);
-            background-color: transparent;
-            padding: 0.5rem 0.75rem;
-            font-size: 0.875rem;
-            cursor: pointer;
-        }
-
-        .select::placeholder {
-            color: hsl(215.4 16.3% 46.9%);
-        }
-
-        .select:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px hsl(221.2 83.2% 53.3%);
-        }
-
-        .select:disabled {
-            cursor: not-allowed;
-            opacity: 0.5;
-        }
-
-        /* Label */
-        .label {
-            font-size: 0.875rem;
-            font-weight: 500;
-            line-height: 1;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="shadcn-styles.css">
 </head>
 <body class="bg-background text-foreground">
     <div class="container mx-auto px-4 py-8 max-w-7xl">
-        <div class="mb-12">
-            <h1 class="text-4xl font-bold mb-2">shadcn/ui Components Showcase</h1>
-            <p class="text-muted-foreground">A comprehensive display of all shadcn/ui components built with Tailwind CSS</p>
+        <div class="mb-12 flex items-start justify-between">
+            <div>
+                <h1 class="text-4xl font-bold mb-2">shadcn/ui Components Showcase</h1>
+                <p class="text-muted-foreground">A comprehensive display of all shadcn/ui components built with Tailwind CSS</p>
+            </div>
+            <button id="themeToggle" class="btn btn-outline" onclick="toggleTheme()">
+                <svg id="sunIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+                <svg id="moonIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                </svg>
+            </button>
         </div>
 
         <!-- Buttons Section -->
@@ -823,5 +389,40 @@
             <p>Built with <a href="https://ui.shadcn.com" class="text-primary hover:underline">shadcn/ui</a> and <a href="https://tailwindcss.com" class="text-primary hover:underline">Tailwind CSS</a></p>
         </footer>
     </div>
+
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            const html = document.documentElement;
+            const sunIcon = document.getElementById('sunIcon');
+            const moonIcon = document.getElementById('moonIcon');
+
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            }
+        }
+
+        // Initialize theme from localStorage
+        (function() {
+            const theme = localStorage.getItem('theme');
+            const html = document.documentElement;
+            const sunIcon = document.getElementById('sunIcon');
+            const moonIcon = document.getElementById('moonIcon');
+
+            if (theme === 'dark') {
+                html.classList.add('dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            }
+        })();
+    </script>
 </body>
 </html>
