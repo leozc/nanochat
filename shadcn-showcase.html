@@ -60,158 +60,385 @@
 
         /* Custom component styles matching shadcn/ui */
         .btn {
-            @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: colors 0.2s;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 2px hsl(221.2 83.2% 53.3%);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            pointer-events: none;
         }
 
         .btn-default {
-            @apply bg-primary text-primary-foreground hover:bg-primary/90;
-            padding: 0.5rem 1rem;
+            background-color: hsl(222.2 47.4% 11.2%);
+            color: hsl(210 40% 98%);
+        }
+
+        .btn-default:hover {
+            background-color: hsl(222.2 47.4% 9%);
         }
 
         .btn-destructive {
-            @apply bg-destructive text-destructive-foreground hover:bg-destructive/90;
-            padding: 0.5rem 1rem;
+            background-color: hsl(0 84.2% 60.2%);
+            color: hsl(210 40% 98%);
+        }
+
+        .btn-destructive:hover {
+            background-color: hsl(0 84.2% 55%);
         }
 
         .btn-outline {
-            @apply border border-input hover:bg-accent hover:text-accent-foreground;
-            padding: 0.5rem 1rem;
+            border: 1px solid hsl(214.3 31.8% 91.4%);
+            background-color: transparent;
+            color: hsl(222.2 84% 4.9%);
+        }
+
+        .btn-outline:hover {
+            background-color: hsl(210 40% 96.1%);
         }
 
         .btn-secondary {
-            @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
-            padding: 0.5rem 1rem;
+            background-color: hsl(210 40% 96.1%);
+            color: hsl(222.2 47.4% 11.2%);
+        }
+
+        .btn-secondary:hover {
+            background-color: hsl(210 40% 93%);
         }
 
         .btn-ghost {
-            @apply hover:bg-accent hover:text-accent-foreground;
-            padding: 0.5rem 1rem;
+            background-color: transparent;
+            color: hsl(222.2 84% 4.9%);
+        }
+
+        .btn-ghost:hover {
+            background-color: hsl(210 40% 96.1%);
         }
 
         .btn-link {
-            @apply underline-offset-4 hover:underline text-primary;
-            padding: 0.5rem 1rem;
+            background-color: transparent;
+            color: hsl(222.2 47.4% 11.2%);
+            text-decoration: none;
+        }
+
+        .btn-link:hover {
+            text-decoration: underline;
+            text-underline-offset: 4px;
         }
 
         .input {
-            @apply flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+            display: flex;
+            height: 2.5rem;
+            width: 100%;
+            border-radius: 0.375rem;
+            border: 1px solid hsl(214.3 31.8% 91.4%);
+            background-color: transparent;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+        }
+
+        .input::placeholder {
+            color: hsl(215.4 16.3% 46.9%);
+        }
+
+        .input:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 2px hsl(221.2 83.2% 53.3%);
+        }
+
+        .input:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
         }
 
         .textarea {
-            @apply flex min-h-[80px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+            display: flex;
+            min-height: 80px;
+            width: 100%;
+            border-radius: 0.375rem;
+            border: 1px solid hsl(214.3 31.8% 91.4%);
+            background-color: transparent;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            resize: vertical;
+        }
+
+        .textarea::placeholder {
+            color: hsl(215.4 16.3% 46.9%);
+        }
+
+        .textarea:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 2px hsl(221.2 83.2% 53.3%);
+        }
+
+        .textarea:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
         }
 
         .card {
-            @apply rounded-lg border bg-card text-card-foreground shadow-sm;
+            border-radius: 0.5rem;
+            border: 1px solid hsl(214.3 31.8% 91.4%);
+            background-color: hsl(0 0% 100%);
+            color: hsl(222.2 84% 4.9%);
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
         }
 
         .badge {
-            @apply inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+            display: inline-flex;
+            align-items: center;
+            border-radius: 9999px;
+            border: 1px solid;
+            padding: 0.125rem 0.625rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: colors 0.2s;
+        }
+
+        .badge:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px hsl(221.2 83.2% 53.3%);
         }
 
         .badge-default {
-            @apply border-transparent bg-primary text-primary-foreground hover:bg-primary/80;
+            border-color: transparent;
+            background-color: hsl(222.2 47.4% 11.2%);
+            color: hsl(210 40% 98%);
+        }
+
+        .badge-default:hover {
+            background-color: hsl(222.2 47.4% 9%);
         }
 
         .badge-secondary {
-            @apply border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80;
+            border-color: transparent;
+            background-color: hsl(210 40% 96.1%);
+            color: hsl(222.2 47.4% 11.2%);
+        }
+
+        .badge-secondary:hover {
+            background-color: hsl(210 40% 93%);
         }
 
         .badge-destructive {
-            @apply border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80;
+            border-color: transparent;
+            background-color: hsl(0 84.2% 60.2%);
+            color: hsl(210 40% 98%);
+        }
+
+        .badge-destructive:hover {
+            background-color: hsl(0 84.2% 55%);
         }
 
         .badge-outline {
-            @apply text-foreground;
+            color: hsl(222.2 84% 4.9%);
         }
 
         .alert {
-            @apply relative w-full rounded-lg border p-4;
+            position: relative;
+            width: 100%;
+            border-radius: 0.5rem;
+            border: 1px solid;
+            padding: 1rem;
         }
 
         .alert-default {
-            @apply bg-background text-foreground;
+            background-color: hsl(0 0% 100%);
+            color: hsl(222.2 84% 4.9%);
+            border-color: hsl(214.3 31.8% 91.4%);
         }
 
         .alert-destructive {
-            @apply border-destructive/50 text-destructive dark:border-destructive;
-        }
-
-        /* Switch styles */
-        .switch {
-            @apply peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 bg-input;
-        }
-
-        .switch:checked {
-            @apply bg-primary;
-        }
-
-        .switch-thumb {
-            @apply pointer-events-none block h-5 w-5 rounded-full bg-background shadow-lg ring-0 transition-transform;
+            border-color: hsl(0 84.2% 75%);
+            color: hsl(0 84.2% 60.2%);
         }
 
         /* Checkbox styles */
         .checkbox {
-            @apply peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+            height: 1rem;
+            width: 1rem;
+            border-radius: 0.125rem;
+            border: 1px solid hsl(222.2 47.4% 11.2%);
+            cursor: pointer;
         }
 
         .checkbox:checked {
-            @apply bg-primary text-primary-foreground;
+            background-color: hsl(222.2 47.4% 11.2%);
+            color: hsl(210 40% 98%);
+        }
+
+        .checkbox:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 2px hsl(221.2 83.2% 53.3%);
+        }
+
+        .checkbox:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
         }
 
         /* Radio styles */
         .radio {
-            @apply aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+            height: 1rem;
+            width: 1rem;
+            border-radius: 9999px;
+            border: 1px solid hsl(222.2 47.4% 11.2%);
+            cursor: pointer;
+        }
+
+        .radio:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 2px hsl(221.2 83.2% 53.3%);
+        }
+
+        .radio:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
         }
 
         /* Progress bar */
         .progress {
-            @apply relative h-4 w-full overflow-hidden rounded-full bg-secondary;
+            position: relative;
+            height: 1rem;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 9999px;
+            background-color: hsl(210 40% 96.1%);
         }
 
         .progress-indicator {
-            @apply h-full bg-primary transition-all;
+            height: 100%;
+            background-color: hsl(222.2 47.4% 11.2%);
+            transition: all 0.3s;
         }
 
         /* Skeleton */
         .skeleton {
-            @apply animate-pulse rounded-md bg-muted;
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            border-radius: 0.375rem;
+            background-color: hsl(210 40% 96.1%);
         }
 
         /* Tabs */
         .tabs-list {
-            @apply inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground;
+            display: inline-flex;
+            height: 2.5rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.375rem;
+            background-color: hsl(210 40% 96.1%);
+            padding: 0.25rem;
+            color: hsl(215.4 16.3% 46.9%);
         }
 
         .tabs-trigger {
-            @apply inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            border-radius: 0.125rem;
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+        }
+
+        .tabs-trigger:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 2px hsl(221.2 83.2% 53.3%);
+        }
+
+        .tabs-trigger:disabled {
+            pointer-events: none;
+            opacity: 0.5;
         }
 
         .tabs-trigger-active {
-            @apply bg-background text-foreground shadow-sm;
+            background-color: hsl(0 0% 100%);
+            color: hsl(222.2 84% 4.9%);
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
         }
 
         /* Avatar */
         .avatar {
-            @apply relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full;
+            position: relative;
+            display: flex;
+            height: 2.5rem;
+            width: 2.5rem;
+            flex-shrink: 0;
+            overflow: hidden;
+            border-radius: 9999px;
         }
 
         .avatar-image {
-            @apply aspect-square h-full w-full;
+            aspect-ratio: 1;
+            height: 100%;
+            width: 100%;
         }
 
         .avatar-fallback {
-            @apply flex h-full w-full items-center justify-center rounded-full bg-muted;
+            display: flex;
+            height: 100%;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            background-color: hsl(210 40% 96.1%);
+            font-size: 0.875rem;
+            font-weight: 500;
         }
 
         /* Select */
         .select {
-            @apply flex h-10 w-full items-center justify-between rounded-md border border-input bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+            display: flex;
+            height: 2.5rem;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 0.375rem;
+            border: 1px solid hsl(214.3 31.8% 91.4%);
+            background-color: transparent;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            cursor: pointer;
+        }
+
+        .select::placeholder {
+            color: hsl(215.4 16.3% 46.9%);
+        }
+
+        .select:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px hsl(221.2 83.2% 53.3%);
+        }
+
+        .select:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
         }
 
         /* Label */
         .label {
-            @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+            font-size: 0.875rem;
+            font-weight: 500;
+            line-height: 1;
         }
 
         @keyframes pulse {
@@ -221,10 +448,6 @@
             50% {
                 opacity: 0.5;
             }
-        }
-
-        .animate-pulse {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
     </style>
 </head>
